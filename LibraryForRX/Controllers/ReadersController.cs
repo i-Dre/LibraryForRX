@@ -22,7 +22,7 @@ namespace LibraryForRX.Controllers
 
         public ReadersController(EFDBContext context)
         {
-            _efContext = context;
+            _efContext = context; //Экземпляр модели из ORM
         }
 
         [HttpPost]
