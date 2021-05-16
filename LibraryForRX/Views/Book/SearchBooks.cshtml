@@ -1,0 +1,44 @@
+﻿@model List<DataLibrary.Entities.Books>
+@{
+    ViewData["Title"] = "Поиск книги по наименованию";
+}
+<table>
+    <tr>
+        <th>
+            Название книги
+        </th>
+        <th>
+            Автор Книги
+        </th>
+        <th>
+            Артикул
+        </th>
+        <th>
+            Год издания
+        </th>
+        <th>
+            Количество экземпляров
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Author
+            </td>
+            <td>
+                @item.Vendor
+            </td>
+            <td>
+                @item.Year
+            </td>
+            <td>
+                @item.Copies
+            </td>
+        </tr>
+
+    }
+</table>

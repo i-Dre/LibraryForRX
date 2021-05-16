@@ -1,0 +1,51 @@
+﻿@model List<DataLibrary.Entities.Readers>
+@{
+    ViewData["Title"] = "Список читателей";
+}
+@{
+
+}
+
+<table>
+    <tr>
+        <th>
+            Номер
+        </th>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+            Функции
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        string birthDateOnly = item.DOB.ToShortDateString();
+        <tr>
+            <td>
+                <a asp-action="Details" asp-controller="Readers" asp-route-id="@item.Id">@item.Id</a>
+            </td>
+            <td>
+                @item.FIO
+            </td>
+            <td>
+                @Html.DisplayTextFor(m => birthDateOnly)
+            </td>
+            <td>
+                <a asp-controller="Readers" asp-action="ChangeRB" asp-route-id="@item.Id">Изменить читательский билет</a>/<a asp-controller="Readers" asp-action="Delete" asp-route-id="@item.Id">Удалить читательский билет</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a asp-controller="Readers" asp-action="CreateRB">Создать читательский билет</a>
+<br />
+<form asp-controller="Readers" asp-action="SearchReaders">
+    <p>
+        Поиск: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>

@@ -1,0 +1,21 @@
+﻿@model DataLibrary.Entities.Readers
+@{
+    ViewBag.Title = Model.FIO;
+}
+<h2>Карточка читателя @Model.FIO</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+        <dt>Дата рождения:</dt>
+        <dd>@Model.DOB.ToShortDateString()</dd>
+        <dt>Список выданных книг:</dt>
+        @foreach (var item in @Model.Books)
+        {
+            <dd>@item.Name</dd>
+        }
+
+
+
+    </dl>
+</div>

@@ -1,0 +1,18 @@
+﻿@model DataLibrary.Entities.Readers
+@{
+    ViewBag.Title = "Создание читательского билета";
+}
+<form asp-action="Create" asp-controller="Readers">
+    <div class="form-group">
+        <label asp-for="FIO" class="control-label">ФИО</label>
+        <input type="text" asp-for="FIO" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DOB" class="control-label">Дата рождения</label>
+        <input type="date" asp-for="DOB" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

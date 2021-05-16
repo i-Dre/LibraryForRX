@@ -1,0 +1,19 @@
+﻿@model DataLibrary.Entities.ManagementBooks
+@{
+    ViewBag.Title = "Выдача книги";
+}
+<form asp-action="Create" asp-controller="Management">
+    <div class="form-group">
+        <label asp-for="Book.Id" class="control-label">Название книги</label>
+        <select asp-for="Book.Id" asp-items="ViewBag.Books"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Reader.Id" class="control-label">Выдать читателю</label>
+        <select asp-for="Reader.Id" asp-items="ViewBag.Readers"></select>
+
+</div>
+    
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

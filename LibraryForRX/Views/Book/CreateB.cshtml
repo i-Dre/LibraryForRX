@@ -1,0 +1,34 @@
+﻿@model DataLibrary.Entities.Books
+@{
+    ViewBag.Title = "Добавление книги";
+}
+<form asp-action="Create" asp-controller="Book">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название книги</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Author" class="control-label">Автор</label>
+        <input type="text" asp-for="Author" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Vendor" class="control-label">Артикул</label>
+        <input type="text" asp-for="Vendor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label">Год издания</label>
+        <input type="number" asp-for="Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Copies" class="control-label">Количество экземпляров</label>
+        <input type="number" asp-for="Copies" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Issued" class="control-label">Выдана:</label>
+        <input asp-for="Issued" class="form-check" />
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

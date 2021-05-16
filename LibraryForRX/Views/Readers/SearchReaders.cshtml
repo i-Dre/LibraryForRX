@@ -1,0 +1,36 @@
+﻿@model List<DataLibrary.Entities.Readers>
+@{
+    ViewData["Title"] = "Поиск читателя по ФИО";
+}
+<table>
+    <tr>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+            Список выданных книг
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.FIO
+            </td>
+            <td>
+                @item.DOB.ToShortDateString()
+            </td>
+            <td>
+                @foreach (var book in item.Books)
+                {
+                    @book.Name
+                    <br />
+                }
+            </td>
+        </tr>
+
+    }
+</table>

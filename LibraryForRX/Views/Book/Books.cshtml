@@ -1,0 +1,68 @@
+﻿@model List<DataLibrary.Entities.Books>
+@{
+    ViewData["Title"] = "Книги";
+}
+<table>
+    <tr>
+        <th>
+            Номер
+        </th>
+        <th>
+            Название книги
+        </th>
+        <th>
+            Автор Книги
+        </th>
+        <th>
+            Артикул
+        </th>
+        <th>
+            Год издания
+        </th>
+        <th>
+            Количество экземпляров
+        </th>
+        <th>
+            Функции
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-controller="Book" asp-route-id="@item.Id">@item.Id</a>
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Author
+            </td>
+            <td>
+                @item.Vendor
+            </td>
+            <td>
+                @item.Year
+            </td>
+            <td>
+                @item.Copies
+            </td>
+            <td>
+                <a asp-controller="Book" asp-action="ChangeB" asp-route-id="@item.Id">Изменить книгу</a>/<a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Удалить книгу</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<a asp-controller="Book" asp-action="CreateB">Добавить книгу</a>
+<br />
+<a asp-controller="Book" asp-action="ListOfBooksIssued">Получить список выданных книг</a>
+<br />
+<a asp-controller="Book" asp-action="ListOfBooksAvailable">Получить список доступных к выдаче книг</a>
+<br />
+<form asp-controller="Book" asp-action="SearchBooks">
+    <p>
+        Поиск: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>

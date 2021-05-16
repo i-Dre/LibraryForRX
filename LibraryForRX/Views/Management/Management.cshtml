@@ -1,0 +1,37 @@
+﻿@model List<DataLibrary.Entities.ManagementBooks>
+@{
+    ViewData["Title"] = "Управление книгами";
+}
+
+
+<table>
+    <tr>
+        <th>
+            Номер
+        </th>
+        <th>
+            Название книги
+        </th>
+        <th>
+            Выдана читателю
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Book.Name
+                </td>
+                <td>
+                    @item.Reader.FIO
+                </td>
+            </tr>
+        }
+    }
+</table>
+<a asp-controller="Management" asp-action="CreateMB">Выдать книгу</a>
